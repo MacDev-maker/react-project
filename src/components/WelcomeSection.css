@@ -1,0 +1,24 @@
+.fullname-container {
+  font-size: 256px;
+  font-family: DM Serif Display;
+  margin-top: 40px;
+  color: rgb(69, 69, 254);
+}
+
+.name {
+  margin-left: 10%;
+}
+
+.surname {
+  padding-top: 0;
+  line-height: 170px;
+  margin-left: 20%;
+}
+
+.my-informations {
+  width: 650px;
+  margin-left: 10%;
+  margin-top: 80px;
+  font-family: Roboto;
+  font-weight: 200;
+}

@@ -26,3 +26,7 @@ body {
   font-weight: 400;
   cursor: pointer;
 }
+
+.header-button:hover {
+  text-decoration: underline;
+}
