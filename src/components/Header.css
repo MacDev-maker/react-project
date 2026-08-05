@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+.section-container{
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  width: 600px;
+  margin-left: 200px;
+}
+
+.header-button {
+  padding: 5px 5px;
+  border: none;
+  background-color: white;
+  color: rgb(69, 69, 254);
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: 400;
+  cursor: pointer;
+}
