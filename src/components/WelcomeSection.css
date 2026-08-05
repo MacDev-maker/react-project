@@ -22,3 +22,59 @@
   font-family: Roboto;
   font-weight: 200;
 }
+
+@media ((width > 680px) and (width < 1200px)) {
+  .fullname-container {
+    font-size: 200px;
+    font-family: DM Serif Display;
+    margin-top: 20px;
+    color: rgb(69, 69, 254);
+  }
+
+  .name {
+    margin-left: 7%;
+  }
+
+  .surname {
+    padding-top: 0;
+    line-height: 170px;
+    margin-left: 15%;
+  }
+
+  .my-informations {
+    width: 540px;
+    margin-left: 7%;
+    margin-top: 40px;
+    font-family: Roboto;
+    font-weight: 200;
+    font-size: 14px;
+  }
+}
+
+@media (width < 680px) {
+  .fullname-container {
+    font-size: 100px;
+    font-family: DM Serif Display;
+    margin-top: 10px;
+    color: rgb(69, 69, 254);
+  }
+
+  .name {
+    margin-left: 5%;
+  }
+
+   .surname {
+    padding-top: 0;
+    line-height: 60px;
+    margin-left: 10%;
+  }
+
+  .my-informations {
+    width: 480px;
+    margin-left: 5%;
+    margin-top: 35px;
+    font-family: Roboto;
+    font-weight: 200;
+    font-size: 12px;
+  }
+}
