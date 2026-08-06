@@ -1,66 +1,86 @@
 .projects-container {
   display: flex;
-  flex-direction: row; /* Change when window resolution changes */
+  flex-direction: row; /*Change when resolution changes*/
+  width: 100%;
+  position: relative;
+}
+
+/* Left sticky side */
+.left-sticky-panel {
+  width: 45%;
+  height: 100vh; 
+  position: sticky;
+  top: 0;        
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
 }
 
 .section-title {
-  font-size: 256px;
-  font-family: DM Serif Display;
-  margin-top: 100px;
+  font-size: 120px; 
+  font-family: 'DM Serif Display', serif;
   color: rgb(69, 69, 254);
-  width: 60%;
-  line-height: 240px;
+  margin-bottom: 20px;
 }
 
+.dynamic-titles-container {
+  position: relative;
+  height: 80px; 
+}
+
+.dynamic-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  color: rgb(100, 113, 209);
+  margin: 0;
+  
+  opacity: 0;
+  transform: translateY(20px); 
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.dynamic-title.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Right side */
 .projects-list {
+  width: 55%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+}
+
+.image-section {
+  height: 100vh;
+  display: flex;
   align-items: center;
-  flex: 1;
-  margin-top: 100px;
+  justify-content: center;
 }
 
 .project {
   display: flex;
   justify-content: center;
-  border: solid;
-  position: relative;
+  align-items: center;
+  border: 4px solid rgb(100, 113, 209);
+  border-radius: 20px;
+  background-color: white;
   width: 450px;
-  height: 150px;
+  height: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.chatbot-project {
-  width: 200px;
-  border: none;
+.project:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.workout-plan-project {
-  width: 200px;
-  border: none;
-}
-
-.kahoot-project {
-  width: 200px;
-  border: none;
-}
-
-.mealapp-project {
-  width: 180px;
-  border: none;
-}
-
-.description-project {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 0;
-  background-color: rgb(100, 113, 209);
-  width: 100%;
-  height: 40px;
-  opacity: 0.6;
-  font-family: Roboto;
-  font-weight: 500px;
-  font-size: 26px;
-  text-align: center;
-  color: white;
+.project img {
+  width: 150px;
+  object-fit: contain;
 }

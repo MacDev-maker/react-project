@@ -1,6 +1,4 @@
-type ProjectProps = {
-  id:string;
-  name: string;
+type ProjectProps = {  name: string;
   hrefGithub: string;
   srcImg: string;
 }
@@ -18,8 +16,7 @@ function Project({name, hrefGithub, srcImg}: ProjectProps) {
             alt="Ecommerce project"
           />
 
-          <p className='description-project'>
-            {name}
+          <p className={name}>
           </p>
         </a>
     </>
