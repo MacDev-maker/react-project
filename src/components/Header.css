@@ -5,14 +5,15 @@ body {
 .header-container {
   display: flex;
   align-items: center;
-  height: 70px;
+  margin-top: 10px;
+  height: 80px;
 }
 
 .section-container{
   display: flex;
   justify-content: space-around;
   gap: 10px;
-  width: 600px;
+  width: 800px;
   margin-left: 200px;
 }
 
@@ -21,7 +22,7 @@ body {
   border: none;
   background-color: white;
   color: rgb(69, 69, 254);
-  font-size: 16px;
+  font-size: 20px;
   font-family: Roboto;
   font-weight: 400;
   cursor: pointer;
