@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import WelcomeSection from './components/WelcomeSection';
+import MyProjects from './components/MyProjects';
 import circle from './assets/circle.svg';
 import './App.css';
 
@@ -12,6 +13,8 @@ function App() {
       <Header />
 
       <WelcomeSection />  
+
+      <MyProjects />
     </>
   )
 }

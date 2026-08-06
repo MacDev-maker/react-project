@@ -1,0 +1,66 @@
+.projects-container {
+  display: flex;
+  flex-direction: row; /* Change when window resolution changes */
+}
+
+.section-title {
+  font-size: 256px;
+  font-family: DM Serif Display;
+  margin-top: 100px;
+  color: rgb(69, 69, 254);
+  width: 60%;
+  line-height: 240px;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  flex: 1;
+  margin-top: 100px;
+}
+
+.project {
+  display: flex;
+  justify-content: center;
+  border: solid;
+  position: relative;
+  width: 450px;
+  height: 150px;
+}
+
+.chatbot-project {
+  width: 200px;
+  border: none;
+}
+
+.workout-plan-project {
+  width: 200px;
+  border: none;
+}
+
+.kahoot-project {
+  width: 200px;
+  border: none;
+}
+
+.mealapp-project {
+  width: 180px;
+  border: none;
+}
+
+.description-project {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+  background-color: rgb(100, 113, 209);
+  width: 100%;
+  height: 40px;
+  opacity: 0.6;
+  font-family: Roboto;
+  font-weight: 500px;
+  font-size: 26px;
+  text-align: center;
+  color: white;
+}
