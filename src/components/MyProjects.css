@@ -1,6 +1,6 @@
 .projects-container {
   display: flex;
-  flex-direction: row; /*Change when resolution changes*/
+  flex-direction: row; 
   width: 100%;
   position: relative;
 }
@@ -20,6 +20,7 @@
 
 .section-title {
   font-size: 150px; 
+  width: 800px;
   font-family: 'DM Serif Display', serif;
   color: rgb(69, 69, 254);
   margin-bottom: 20px;
@@ -83,4 +84,206 @@
 .project img {
   width: 190px;
   object-fit: contain;
+}
+
+@media ((width > 680px) and (width < 1580px)) {
+  .projects-container {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    position: relative;
+  }
+
+  .left-sticky-panel {
+    width: 100%; /* It takes whole width */
+    height: auto; /* Leabe space for scroll */
+    min-height: 25vh; /* Space for text*/ 
+    
+    position: sticky;
+    top: 0;        
+    
+    
+    background-color: white; 
+    z-index: 10; /*title under img*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    padding: 30px 5% 10px 5%; 
+  }
+
+  .section-title {
+    font-size: 150px;      
+    font-family: 'DM Serif Display', serif;
+    width: 800px;
+    color: rgb(69, 69, 254);
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .dynamic-titles-container {
+    position: relative;
+    height: 80px;     
+  }
+
+  .dynamic-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 65px;
+    color: rgb(100, 113, 209);
+    margin: 0;
+    
+    opacity: 0;
+    transform: translateY(20px); 
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .dynamic-title.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Bottom section */
+  .projects-list {
+    width: 100%; /* It takes whole width */   
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .image-section {
+    height: 70vh;         
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 40px;
+  }
+
+  .project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid rgb(100, 113, 209);
+    border-radius: 20px;
+    background-color: white;
+    
+    width: 560px;           
+    height: 370px;        
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .project img {
+    width: 190px;       
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 680px) {
+  .projects-container {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    position: relative;
+  }
+
+  .left-sticky-panel {
+    width: 100%; /* It takes whole width */
+    height: auto; /* Leabe space for scroll */
+    min-height: 25vh; /* Space for text*/ 
+    
+    position: sticky;
+    top: 0;        
+    
+    
+    background-color: white; 
+    z-index: 10; /*title under img*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    padding: 30px 5% 10px 5%; 
+  }
+
+  .section-title {
+    font-size: 70px;      
+    font-family: 'DM Serif Display', serif;
+    width: 400px;
+    color: rgb(69, 69, 254);
+    margin-bottom: 10px;
+    line-height: 1.1;
+  }
+
+  .dynamic-titles-container {
+    position: relative;
+    height: 50px;     
+  }
+
+  .dynamic-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    color: rgb(100, 113, 209);
+    margin: 0;
+    
+    opacity: 0;
+    transform: translateY(15px); 
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .dynamic-title.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Bottom section */
+  .projects-list {
+    width: 100%; /* It takes whole width */   
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .image-section {
+    height: 70vh;         
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 40px;
+  }
+
+  .project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid rgb(100, 113, 209);
+    border-radius: 15px;
+    background-color: white;
+    
+    
+    width: 90%;           
+    max-width: 350px;     
+    height: 250px;        
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .project img {
+    width: 120px;       
+    object-fit: contain;
+  }
 }
