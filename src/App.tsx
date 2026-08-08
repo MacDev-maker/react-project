@@ -1,44 +1,25 @@
 import Header from './components/Header';
 import WelcomeSection from './components/WelcomeSection';
 import MyProjects from './components/MyProjects';
-import { useState } from 'react';
+import Skills from './components/Skills';
+import { useState, useEffect } from 'react';
+import { projectsData } from './data';
+import { skillsData } from './data';
 import circle from './assets/circle.svg';
 import './App.css';
 
 function App() {
-  const projectsData = [
-    {
-      key: "1",
-      name: "Ecommerce",
-      hrefGithub: "https://github.com/MacDev-maker/ecommerce-project",
-      srcImg: "https://api.iconify.design/lucide:shopping-basket.svg?color=%2328a745"
-    }, {
-      key: "2",
-      name: "Chatbot",
-      hrefGithub: "https://github.com/MacDev-maker/chatbot-project'",
-      srcImg: "https://icones.pro/wp-content/uploads/2022/10/icone-robot-vert.png"
-    }, {
-      key: "3",
-      name: "Workout app",
-      hrefGithub: "https://github.com/MacDev-maker/WorkoutPlan",
-      srcImg: "https://cdn-icons-png.flaticon.com/512/38/38464.png"
-    }, {
-      key: "4",
-      name: "Kahoot game",
-      hrefGithub: "https://github.com/MacDev-maker/projekt_zaliczeniowy",
-      srcImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8UZQwtC0CCwP-ifhRGehA8WG67h1vYU2Iz6VaS9Qyg&s=10"
-    }, {
-      key: "5",
-      name: "Mealapp",
-      hrefGithub: "https://github.com/MacDev-maker/Mealapp",
-      srcImg: "https://cdn-icons-png.flaticon.com/512/2046/2046670.png"
-    }
-  ];
-
-  localStorage.setItem('myProjects', JSON.stringify(projectsData));
+  useEffect(() => {
+    localStorage.setItem('myProjects', JSON.stringify(projectsData));
+    localStorage.setItem('skills', JSON.stringify(skillsData));
+  }, []);
 
   const [myProjects] = useState(
     JSON.parse(localStorage.getItem('myProjects') || '[]')
+  );
+
+  const [skills] = useState(
+    JSON.parse(localStorage.getItem('skills') || '[]')
   );
 
   return (
@@ -53,6 +34,14 @@ function App() {
       <MyProjects 
         myProjects={myProjects}
       />
+
+      <Skills 
+        skills={skills}
+      />
+
+      <p className='dlugie'>
+
+      </p>
     </>
   )
 }
