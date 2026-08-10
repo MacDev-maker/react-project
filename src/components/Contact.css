@@ -1,0 +1,39 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+.footer-title {
+  font-size: 150px; 
+  width: 800px;
+  font-family: 'DM Serif Display', serif;
+  color: rgb(69, 69, 254);
+  margin-bottom: 5px;
+}
+
+.copyright {
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+.linkedin-link {
+  margin-right: 10px;
+}
+
+.author-icon-gmail,
+.author-icon-linkedIn {
+  width: 50px;
+}
+
+@media ((width > 680px) and (width < 1580px)) {
+  .footer-title {
+    font-size: 70px;
+  }
+}
+
+@media (max-width: 680px) {
+  .footer-title {
+    font-size: 70px;
+  }
+}
