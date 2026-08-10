@@ -1,25 +1,26 @@
-import Header from './components/Header';
-import WelcomeSection from './components/WelcomeSection';
-import MyProjects from './components/MyProjects';
-import Skills from './components/Skills';
-import { useState, useEffect } from 'react';
-import { projectsData } from './data';
-import { skillsData } from './data';
-import circle from './assets/circle.svg';
-import './App.css';
+import Header from "./components/Header";
+import WelcomeSection from "./components/WelcomeSection";
+import MyProjects from "./components/MyProjects";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
+import { useState, useEffect } from "react";
+import { projectsData } from "./data";
+import { skillsData } from "./data";
+import circle from "./assets/circle.svg";
+import "./App.css";
 
 function App() {
   useEffect(() => {
-    localStorage.setItem('myProjects', JSON.stringify(projectsData));
-    localStorage.setItem('skills', JSON.stringify(skillsData));
+    localStorage.setItem("myProjects", JSON.stringify(projectsData));
+    localStorage.setItem("skills", JSON.stringify(skillsData));
   }, []);
 
   const [myProjects] = useState(
-    JSON.parse(localStorage.getItem('myProjects') || '[]')
+    JSON.parse(localStorage.getItem("myProjects") || "[]")
   );
 
   const [skills] = useState(
-    JSON.parse(localStorage.getItem('skills') || '[]')
+    JSON.parse(localStorage.getItem("skills") || "[]")
   );
 
   return (
@@ -39,9 +40,7 @@ function App() {
         skills={skills}
       />
 
-      <p className='dlugie'>
-
-      </p>
+      <Contact />
     </>
   )
 }

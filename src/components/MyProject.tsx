@@ -8,8 +8,8 @@ function Project({name, hrefGithub, srcImg}: ProjectProps) {
   return(
     <>
        <a
-          className='project'
-          target='_blank' 
+          className="project"
+          target="_blank" 
           href={hrefGithub}
         >
           <img 

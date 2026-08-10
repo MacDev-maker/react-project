@@ -32,6 +32,15 @@ body {
   text-decoration: underline;
 }
 
+.download-resume {
+  text-decoration: none;
+}
+
+.projects-button,
+.contact-button {
+  scroll-behavior: smooth;
+}
+
 @media ((width > 680px) and (width < 1200px)) {
   .section-container{
     display: flex;
