@@ -36,7 +36,7 @@ function MyProjects({ myProjects }: MyProjectsProps) {
   }, []);
 
   return (
-    <div 
+    <section
       className="projects-container"
       id="my-projects"
     >
@@ -73,7 +73,7 @@ function MyProjects({ myProjects }: MyProjectsProps) {
         ))}
       </div>
 
-    </div>
+    </section>
   );
 }
 

@@ -1,4 +1,9 @@
- export const projectsData = [
+import jsIcon from './assets/JavaScript-icon.png';
+import reactIcon from './assets/react.svg';
+import toolBoxIcon from './assets/tool-box-icon.png';
+import aiIcon from './assets/ai-icon.png';
+
+export const projectsData = [
   {
     key: "1",
     name: "Ecommerce",
@@ -29,47 +34,25 @@
 
 export const skillsData = [
   {
-    key: "1",
-    name: "ReactTs",
-    description: [
-      "React Basics JSX",
-      "Components and Props",
-      "State, Event Handlers",
-      "Hooks and Custom Hooks",
-      "Conditional Rendering and List Rendering",
-      "React Setup with Vite",
-      "React Router for Navigation",
-      "Backend, Data Fetching, Data Mutation",
-      "Automated Tests with Vitest",
-      "Deploy to the Internet with AWS",
-      "New Features of React, React Compiler",
-      "TypeScript, React with TypeScript"
-],
+    key: "react",
+    name: "React & Ecosystem",
+    description: [ "React.js", "JSX", "Custom Hooks", "React Router", "State Management"],
+    icon: reactIcon,
   }, {
-    key: "2",
-    name: "JavaScript",
-    description: [
-    "JavaScript Basics: Numbers, Math, Strings, Variables, Booleans, If-Statements, Functions, and Objects",
-    "Arrays and Loops",
-    "Document Object Model (DOM)",
-    "HTML, CSS, and JavaScript Together",
-    "Functions as Values",
-    "Intro to Git",
-    "Modules",
-    "External Libraries",
-    "Automated Testing and Testing Frameworks",
-    "Object-Oriented Programming, Classes, and Inheritance",
-    "Intro to Backend and HTTP Requests",
-    "Callbacks, Promises, and Async Await"
-],
+    key: "frontend",
+    name: "Frontend & Web Foundations",
+    description: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "Semantic Web"],
+    icon: jsIcon
   }, {
-    key: "3",
-    name: "Additional",
-    description: [
-      "AI For Everyone Certificate - Understanding AI capabilities and business applications",
-      "Networking Basics Certificate - Fundamentals of computer networks and communication",
-      "CSS Fundamentals Certificate - Web styling and layouts",
-      "Ultimate HTML Certificate - Web structuring and foundations"
-    ]
-  }
+    key: "ai",
+    name: "AI & Fundamentals",
+    description: ["AI Capabilities", "Business AI Applications", "Networking Basics", "Computer Networks"],
+    icon: aiIcon,
+  },
+  {
+    key: "tools",
+    name: "Tools, Testing & Cloud",
+    description: ["Vite", "Git", "Vitest", "REST API", "AWS Deployment", "Jasmine"],
+    icon: toolBoxIcon,
+  },
 ];

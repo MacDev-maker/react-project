@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import './Skills.css';
 import Skill from './Skill';
 
@@ -8,45 +8,91 @@ type SkillsProps = {
     key: string;
     name: string;
     description: string[];
+    icon: string;
   }[]
 }
 
 function Skills({ skills }: SkillsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isDesktop, setIsDesktop] = useState(true);
+  const [path, setPath] = useState('');
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1580);
-    };
-    handleResize();
+    if (!containerRef.current) return;
+    const wrapper = containerRef.current;
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    const calculatePaths = () => {
+      const boxes = Array.from(wrapper.querySelectorAll('.skill')) as HTMLElement[];
+      if (boxes.length === 0) return;
+
+      let newPath = '';
+
+      for (let i = 0; i < boxes.length; i++) {
+        const box = boxes[i];
+        
+        // Dynamically calculating the center of the boxes
+        const boxCenterY = box.offsetTop + (box.offsetHeight / 2);
+        const currentX = box.offsetLeft + (box.offsetWidth / 2);
+
+        if (i === 0) {
+          // Begining of path
+          newPath += `M ${currentX} ${boxCenterY}`;
+        } else {
+          const prevBox = boxes[i - 1];
+          const prevX = prevBox.offsetLeft + (prevBox.offsetWidth / 2);
+          const prevBottom = prevBox.offsetTop + prevBox.offsetHeight;
+
+          // Gap
+          const gapCenterY = prevBottom + (box.offsetTop - prevBottom) / 2;
+
+          newPath += ` L ${prevX} ${gapCenterY}`;
+          newPath += ` L ${currentX} ${gapCenterY}`;
+          newPath += ` L ${currentX} ${boxCenterY}`;
+        }
+      }
+
+      setPath(newPath);
+    };
+
+    // Catches every change
+    const observer = new ResizeObserver(() => {
+      requestAnimationFrame(calculatePaths);
+    });
+
+    observer.observe(wrapper);
+    const skillBoxes = wrapper.querySelectorAll('.skill');
+    skillBoxes.forEach(box => observer.observe(box));
+
+    return () => observer.disconnect();
+  }, [skills]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start center", "end 80%"]
+    offset: ["start 80%", "end 90%"] 
   });
 
-  const desktopPath = "M 375 150 L 375 900 L 825 900 L 825 2200 L 600 2200 L 600 2600";
-  const mobilePath = "M 600 150 L 600 2900"; 
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   return (
-    <div className='skills-container'>
-      <h1 className='skills-title'>Skills</h1>
+    <section className='skills-container'>
+      <h2 className='skills-title'>Skills</h2>
       <div className='timeline-wrapper' ref={containerRef}>        
-        <svg className="timeline-svg" viewBox="0 0 1200 3000" preserveAspectRatio="none">
-          <motion.path
-            d={isDesktop ? desktopPath : mobilePath}
-            fill="none"
-            stroke="#8787ff" 
-            strokeWidth={isDesktop ? "6" : "12"}
-            strokeLinecap="square"
-            strokeLinejoin="miter"
-            style={{ pathLength: scrollYProgress }} 
-          />
+        
+        <svg className="timeline-svg">
+          {path && (
+            <motion.path
+              d={path}
+              fill="none"
+              stroke="#8787ff" 
+              strokeWidth="6"
+              strokeLinecap="square"
+              strokeLinejoin="miter"
+              style={{ pathLength: smoothProgress }} 
+            />
+          )}
         </svg>
 
         <div className='skills-list'>
@@ -56,11 +102,12 @@ function Skills({ skills }: SkillsProps) {
               name={skill.name}
               description={skill.description}
               index={index} 
+              icon={skill.icon} 
             />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
